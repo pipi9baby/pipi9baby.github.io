@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+<body>
+    <div class="mx-auto flex">
+        <div class="mx-5">
+            <h3 class="mt-3 mb-1">Info</h3>
+            <p class="text-sm">RIOT release 2020.07</p>
+            <p class="text-sm">BOARD=samr21-xpro</p>
+        </div>
+
+        <div class="mx-5">
+            <h3 class="mt-3 mb-1">Overhead</h3>
+            <ul class="text-sm list-disc">
+                <li>GPIO: 5000 samples</li>
+                <li>timer now: 5000 samples</li>
+                <li>other: 50 samples</li>
+                <li>10us difference when setting a timer</li>
+                <li>xtimer overhead rose significantly (+38us, +44us) vs (+8us, +20us)</li>
+                <li>when removing a set timer, overall xtimer is faster</li>
+            </ul>
+        </div>
+
+        <div class="mx-5">
+            <h3 class="mt-3 mb-1">Accuracy</h3>
+            <ul class="text-sm list-disc">
+                <li>the "at least" sleep approach is more "true"</li>
+                <li>In general, ztimer has +10us overhead compared to xtimer</li>
+            </ul>
+        </div>
+
+        <div class="mx-5">
+            <h3 class="mt-3 mb-1">Drift</h3>
+            <p class="text-sm">y-axis= (DUT - PHILIP) / Target * 100</p>
+        </div>
+
+        <div class="mx-5">
+            <h3 class="mt-3 mb-1">Jitter</h3>
+            <ul class="text-sm list-disc">
+                <li>jitter is way less in ztimer</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="flex my-10">
+        <div class="flex-col mx-5 w-1/2">
+            <h2 class="underline mb-5 text-center">XTIMER</h2>
+            <iframe class="h-56 w-full" src="xtimer/overhead.html"></iframe>
+            <iframe class="h-full w-full" src="xtimer/accuracy.html"></iframe>
+            <iframe class="h-full w-full" src="xtimer/jitter.html"></iframe>
+            <iframe class="h-full w-full" src="xtimer/drift_percentage.html"></iframe>
+        </div>
+
+        <div class="flex-col mx-10 w-1/2">
+            <h2 class="underline mb-5 text-center">ZTIMER</h2>
+            <iframe class="h-56 w-full" src="ztimer/overhead.html"></iframe>
+            <iframe class="h-full w-full" src="ztimer/accuracy.html"></iframe>
+            <iframe class="h-full w-full" src="ztimer/jitter.html"></iframe>
+            <iframe class="h-full w-full" src="ztimer/drift_percentage.html"></iframe>
+        </div>
+    </div>
+</body>
+
+</html>
